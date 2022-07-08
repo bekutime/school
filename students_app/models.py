@@ -15,8 +15,8 @@ class Student(models.Model):
     phone_number = models.CharField(max_length=8)
     email = models.EmailField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    courses = models.ForeignKey(Course, on_delete=models.CASCADE)
-
+    # courses = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ManyToManyField(Course)
     class Meta:
         ordering = ['-first_name']
         unique_together = (
